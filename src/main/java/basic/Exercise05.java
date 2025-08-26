@@ -1,7 +1,7 @@
 package basic;
 
 public class Exercise05 {
-    public static long factorial(int n) {
+    public static long factorial(final int n) {
         if (n < 0)
             return 1;
         long result = 1;
