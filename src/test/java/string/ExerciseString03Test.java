@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 public class ExerciseString03Test {
 
     @Test
-    void testIsRepeatedSubString() {
+    void shouldIsRepeatedSubstring_OK() {
         assertTrue(ExerciseString03.isRepeatedSubString("abcabcabc"));
         assertTrue(ExerciseString03.isRepeatedSubString("abab"));
         assertTrue(ExerciseString03.isRepeatedSubString("aaaa"));
