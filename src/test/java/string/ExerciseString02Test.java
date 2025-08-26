@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 public class ExerciseString02Test {
 
     @Test
-    void testSumOfIntegersInString() {
+    void shouldSumOfIntegersInString_OK() {
         assertEquals(6, ExerciseString02.sumOfIntegersInString("1 2 3"));
         assertEquals(0, ExerciseString02.sumOfIntegersInString("abc"));
         assertEquals(6, ExerciseString02.sumOfIntegersInString("1 abc 2 def 3"));
