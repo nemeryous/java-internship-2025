@@ -5,8 +5,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.Test;
 
 public class Exercise08Test {
+
     @Test
-    void testToRoman() {
+    void shouldToRoman_OK() {
+
         assertEquals(Exercise08.toRoman(1), "I");
         assertEquals(Exercise08.toRoman(4), "IV");
         assertEquals(Exercise08.toRoman(9), "IX");
@@ -19,5 +21,6 @@ public class Exercise08Test {
         assertEquals(Exercise08.toRoman(500), "D");
         assertEquals(Exercise08.toRoman(900), "CM");
         assertEquals(Exercise08.toRoman(1000), "M");
+
     }
 }
