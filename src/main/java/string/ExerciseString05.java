@@ -3,7 +3,7 @@ package string;
 public class ExerciseString05 {
 
     public static String decompressString(final String input) {
-        
+
         if (input == null || input.isEmpty()) {
             return input;
         }
@@ -14,20 +14,18 @@ public class ExerciseString05 {
         while (i < input.length()) {
             char c = input.charAt(i);
             int j = i + 1;
-            final StringBuilder num = new StringBuilder();
+            int num = 0;
 
             while (j < input.length() && Character.isDigit(input.charAt(j))) {
-                num.append(input.charAt(j));
+                num = num * 10 + (input.charAt(j) - '0');
                 j++;
             }
 
-            int repeat = 1;
-
-            if (num.length() > 0) {
-                repeat = Integer.parseInt(num.toString());
+            if (num == 0) {
+                num = 1;
             }
 
-            for (int k = 0; k < repeat; k++) {
+            for (int k = 0; k < num; k++) {
                 result.append(c);
             }
 
