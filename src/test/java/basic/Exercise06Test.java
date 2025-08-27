@@ -5,8 +5,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.Test;
 
 public class Exercise06Test {
+
     @Test
-    void testGetMonthName() {
+    void shouldGetMonthName_OK() {
+
         assertEquals(Exercise06.getMonthName(1), "Tháng Một");
         assertEquals(Exercise06.getMonthName(2), "Tháng Hai");
         assertEquals(Exercise06.getMonthName(3), "Tháng Ba");
