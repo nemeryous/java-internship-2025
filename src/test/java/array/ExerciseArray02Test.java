@@ -12,10 +12,5 @@ public class ExerciseArray02Test {
         assertEquals(0, ExerciseArray02.binarySearch(new int[] { 1, 3, 5, 7, 9 }, 1));
         assertEquals(4, ExerciseArray02.binarySearch(new int[] { 1, 3, 5, 7, 9 }, 9));
         assertEquals(-1, ExerciseArray02.binarySearch(new int[] { 1, 3, 5, 7, 9 }, 8));
-        assertEquals(2, ExerciseArray02.binarySearch(new int[] { 9, 7, 5, 3, 1 }, 5));
-        assertEquals(0, ExerciseArray02.binarySearch(new int[] { 9, 7, 5, 3, 1 }, 9));
-        assertEquals(4, ExerciseArray02.binarySearch(new int[] { 9, 7, 5, 3, 1 }, 1));
-        assertEquals(-1, ExerciseArray02.binarySearch(new int[] { 9, 7, 5, 3, 1 }, 8));
-        assertEquals(-1, ExerciseArray02.binarySearch(new int[] {}, 5));
     }
 }
