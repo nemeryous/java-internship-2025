@@ -24,7 +24,9 @@ public class ExerciseArray04 {
         }
 
         while (i >= 0) {
-            merge[k--] = arr1[i--];
+            merge[k] = arr1[i];
+            i--;
+            k--;
         }
 
         return merge;
