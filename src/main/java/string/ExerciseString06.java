@@ -1,34 +1,23 @@
 package string;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class ExerciseString06 {
-    
+
     public static boolean isValidBarcode(final String str) {
         if (str == null || str.length() != 13) {
             return false;
         }
 
-        final List<Integer> nums = new ArrayList<>();
+        int sum = 0;
 
-        for (char c : str.toCharArray()) {
-            if (!Character.isDigit(c)) {
-                return false;
-            }
-
-            nums.add(Character.getNumericValue(c));
-        }
-
-        for (int i = 0; i < nums.size() - 1; i++) {
-            if (i % 2 == 0) {
-                nums.set(i, nums.get(i) * 1);
+        for (int i = 0; i < str.length(); i++) {
+            final int digit = Character.getNumericValue(str.charAt(i));
+            
+            if ((i + 1) % 2 == 0) {
+                sum += digit * 3;
             } else {
-                nums.set(i, nums.get(i) * 3);
+                sum += digit;
             }
         }
-
-        int sum = nums.stream().mapToInt(Integer::intValue).sum();
 
         return sum % 10 == 0;
     }
