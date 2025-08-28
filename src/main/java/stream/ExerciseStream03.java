@@ -15,7 +15,8 @@ public class ExerciseStream03 {
             "Seven",
             "Eight",
             "Nine",
-            "Ten" };
+            "Ten"
+    };
 
     public static String convertNumberToString(final int number) {
         final String strNumber = String.valueOf(number);
