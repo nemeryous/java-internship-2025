@@ -11,10 +11,10 @@ public class Exercise07 {
         int temp = n;
 
         while (temp > 0) {
-            binary.append(temp % 2);
-            temp /= 2;
+            binary.append(temp & 1);
+            temp >>= 1;
         }
-        
+
         int newNumber = 0;
         for (int i = binary.length() - 1; i >= 0; i--) {
             int bit = binary.charAt(i) - '0';
