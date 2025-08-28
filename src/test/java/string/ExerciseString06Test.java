@@ -11,6 +11,6 @@ public class ExerciseString06Test {
     void shouldIsValidBarcode_OK() {
         assertTrue(ExerciseString06.isValidBarcode("8938505974194"));
         assertFalse(ExerciseString06.isValidBarcode("1234567890153"));
-        assertTrue(ExerciseString06.isValidBarcode("1234567890122"));
+        assertFalse(ExerciseString06.isValidBarcode("1234567890122"));
     }
 }
