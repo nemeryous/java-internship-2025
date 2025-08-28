@@ -5,32 +5,46 @@ import java.util.Arrays;
 public class ExerciseArray04 {
 
     public static int[] mergeTwoSortedArray(final int[] arr1, final int[] arr2) {
+        final int arr1Length = arr1.length;
+        final int arr2Length = arr2.length;
+        int i = 0;
+        int j = 0;
+        final int[] merge = new int[arr1Length + arr2Length];
+        int k = 0;
 
-        int i = arr1.length - 1;
-        int j = arr2.length - 1;
-        final int[] merge = new int[i + j + 2];
-        int k = merge.length - 1;
-
-        while (j >= 0) {
-            if (i >= 0 && arr1[i] > arr2[j]) {
+        while (i < arr1.length && j < arr2.length) {
+            if (arr1[i] < arr2[j]) {
                 merge[k] = arr1[i];
-                i--;
+                i++;
             } else {
                 merge[k] = arr2[j];
-                j--;
+                j++;
             }
 
-            k--;
+            k++;
         }
 
-        while (i >= 0) {
+        while (i < arr1Length) {
             merge[k] = arr1[i];
-            i--;
-            k--;
+            i++;
+            k++;
+        }
+
+        while (j < arr2Length) {
+            merge[k] = arr2[j];
+            j++;
+            k++;
         }
 
         return merge;
 
+    }
+
+    public static void main(String[] args) {
+        int[] arr1 = {1, 3, 5};
+        int[] arr2 = {2, 4, 6};
+        int[] merged = mergeTwoSortedArray(arr1, arr2);
+        System.out.println(Arrays.toString(merged));
     }
 
 }
