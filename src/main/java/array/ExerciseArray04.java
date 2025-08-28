@@ -1,7 +1,5 @@
 package array;
 
-import java.util.Arrays;
-
 public class ExerciseArray04 {
 
     public static int[] mergeTwoSortedArray(final int[] arr1, final int[] arr2) {
@@ -38,13 +36,6 @@ public class ExerciseArray04 {
 
         return merge;
 
-    }
-
-    public static void main(String[] args) {
-        int[] arr1 = {1, 3, 5};
-        int[] arr2 = {2, 4, 6};
-        int[] merged = mergeTwoSortedArray(arr1, arr2);
-        System.out.println(Arrays.toString(merged));
     }
 
 }
