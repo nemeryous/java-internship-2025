@@ -6,22 +6,16 @@ public class Exercise07 {
         if (n == 0) {
             return 0;
         }
-
-        StringBuilder binary = new StringBuilder();
         int temp = n;
+        int newNumber = 0;
+
 
         while (temp > 0) {
-            binary.append(temp & 1);
+            final int bit = temp & 1;
+            newNumber = (newNumber << 1) | bit;
             temp >>= 1;
         }
-
-        int newNumber = 0;
-        for (int i = binary.length() - 1; i >= 0; i--) {
-            int bit = binary.charAt(i) - '0';
-            System.out.println(bit);
-            newNumber += bit * (int) Math.pow(2, binary.length() - 1 - i);
-        }
-
+        
         return newNumber;
     }
 }
