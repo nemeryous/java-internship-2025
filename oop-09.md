@@ -12,8 +12,8 @@
 
 ## @Override
 
-- **@Override** được sử dụng cho các phương thức có nghĩa là ghi đè phương thức trong lớp cha
+- **@Override**  là từ khóa dùng để chỉ việc ghi đè (thay thế) phương thức của lớp cha bằng phương thức mới trong lớp con. Khi một phương thức ở lớp con có cùng tên, kiểu trả về và tham số với phương thức ở lớp cha, phương thức ở lớp con sẽ được gọi thay cho phương thức ở lớp cha khi đối tượng thuộc lớp con sử dụng.
 
 ## @Deprecated
 
-- **Deprecated** được sử dụng để đánh dấu một class/method/field và chỉ dẫn rằng tốt nhất nó không nên được sử dụng nữa
+- **Deprecated** là từ khóa (annotation) dùng để đánh dấu một class, method hoặc field trong Java là "không nên sử dụng nữa". Khi một thành phần bị đánh dấu là deprecated, trình biên dịch sẽ cảnh báo nếu bạn sử dụng nó, nhằm khuyến khích chuyển sang giải pháp mới hoặc thay thế tốt hơn.
