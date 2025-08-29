@@ -1,6 +1,6 @@
 | Tiêu chí         | Class                     | Abstract Class              | Interface                            |
 | ---------------  | ------------------------- | --------------------------- | ---------------------------------- |
-| **Khởi tạo**     | Có thể dùng `new`         | Không thể dùng `new`        | Không thể dùng `new`               |
+| **Khởi tạo**     | Có thể dùng `new`         | Không thể khởi tạo trực tiếp | Không thể khởi tạo trực tiếp       |
 | **Phương thức** | Cụ thể (có body)          | Có thể abstract hoặc cụ thể | Abstract (không body, trừ default) |
 | **Thuộc tính**  | Có thể có instance/static | Có thể có instance/static   | Chỉ hằng số (public static final)  |
 | **Kế thừa**     | Kế thừa đơn (extends)     | Kế thừa đơn (extends)       | Đa kế thừa (implements nhiều)      |
