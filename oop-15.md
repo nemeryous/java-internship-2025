@@ -8,84 +8,174 @@
   2. Để truyền instance của class hiện tại như là một tham số
   3. Phân biệt giữa field và tham số truyền vào
 
-# Từ khoá `this` trong Java
+- **Các trường hợp phải dùng `this`**
 
-`this` là một biến tham chiếu đến đối tượng hiện tại của class.
+  1. Dùng `this` tham chiếu đến đến biến của instance của class hiện tại
 
----
+  ```java
+  class Geeks {
+    int a;
+    int b;
 
-## Tác dụng
-
-1. Gọi phương thức và thuộc tính của instance hiện tại.
-2. Truyền instance của class hiện tại như là một tham số.
-3. Phân biệt giữa field và tham số truyền vào khi trùng tên.
-4. Gọi constructor khác trong cùng class.
-5. Trả về instance hiện tại.
-
----
-
-## Các trường hợp sử dụng `this`
-
-### 1. Phân biệt giữa biến thành viên và tham số truyền vào
-
-```java
-class Student {
-    private String name;
-    public Student(String name) {
-        this.name = name; // 'this' phân biệt biến thành viên và tham số
+    // Parameterized constructor
+    Geeks(int a, int b)
+    {
+        this.a = a;
+        this.b = b;
     }
-}
-```
 
-### 2. Gọi constructor khác trong cùng class
-
-```java
-class Student {
-    private String name;
-    public Student() {
-        this("Unknown"); // gọi constructor khác
+    void display()
+    {
+        // Displaying value of variables a and b
+        System.out.println("a = " + a + "  b = " + b);
     }
-    public Student(String name) {
-        this.name = name;
+
+    public static void main(String[] args)
+    {
+        Geeks object = new Geeks(10, 20);
+        object.display();
     }
-}
-```
+  }
+  ```
 
-### 3. Trả về instance hiện tại
+  2. Dùng `this()` để gọi constructor của class hiện tại
 
-```java
-class Student {
-    public Student getSelf() {
+  ```java
+  class Geeks {
+    int a;
+    int b;
+
+    // Default constructor
+    Geeks()
+    {
+        this(10, 20);
+        System.out.println(
+            "Inside  default constructor \n");
+    }
+
+    // Parameterized constructor
+    Geeks(int a, int b)
+    {
+        this.a = a;
+        this.b = b;
+        System.out.println(
+            "Inside parameterized constructor");
+    }
+
+    public static void main(String[] args)
+    {
+        Geeks object = new Geeks();
+    }
+  }
+  ```
+
+  3. Dùng `this` để trả về instance của class hiện tại
+
+  ```java
+  // Java program for using "this" keyword
+  // to return the current class instance
+  class Geeks {
+    int a;
+    int b;
+
+    // Default constructor
+    Geeks()
+    {
+        a = 10;
+        b = 20;
+    }
+
+    // Method that returns current class instance
+    Geeks get() {
         return this;
     }
-}
-```
 
-### 4. Truyền chính đối tượng hiện tại cho method hoặc constructor khác
+    // Displaying value of variables a and b
+    void display()
+    {
+        System.out.println("a = " + a + "  b = " + b);
+    }
 
-```java
-class Student {
-    public void printSelf(Student s) {
-        System.out.println(s);
+    public static void main(String[] args)
+    {
+        Geeks object = new Geeks();
+        object.get().display();
     }
-    public void callPrint() {
-        printSelf(this);
-    }
-}
-```
+  }
 
-### 5. Gọi phương thức khác của class hiện tại
+  ```
 
-```java
-class Student {
-    public void show() {
-        System.out.println("Show");
+  4. Dùng `this` như là một tham số của phương thức
+
+  ```java
+  // Java program for using "this"
+  // keyword as method parameter
+  class Geeks {
+    int a;
+    int b;
+
+    // Default constructor
+    Geeks()
+    {
+        a = 10;
+        b = 20;
     }
-    public void display() {
-        this.show(); // gọi phương thức show
+
+    // Method that receives "this"
+    // keyword as parameter
+    void display(Geeks obj)
+    {
+        System.out.println("a = " + obj.a
+                           + "  b = " + obj.b);
     }
-}
-```
+
+    // Method that returns current class instance
+    void get() {
+        display(this);
+    }
+
+    // main function
+    public static void main(String[] args)
+    {
+        Geeks object = new Geeks();
+        object.get();
+    }
+  }
+  ```
+
+  5. Dùng `this` để gọi đến phương thức của class hiện tại
+
+  ```java
+  // Java program for using this to invoke current
+  // class method
+  class Geeks {
+
+    void display()
+    {
+        // calling function show()
+        this.show();
+
+        System.out.println("Inside display function");
+    }
+
+    void show()
+    {
+        System.out.println("Inside show function");
+    }
+
+    public static void main(String args[])
+    {
+        Geeks g1 = new Geeks();
+        g1.display();
+    }
+  }
+  ```
+
+  6. Dùng `this` như là đối số của lệnh gọi constructor
+
+  ```java
+  // Java program for using this as an
+  // argument in constructor call
   // Class with object of Class B as its data member
   class A {
     B obj;
@@ -100,10 +190,9 @@ class Student {
         obj.display();
     }
   }
-  ```
 
-class B {
-int x = 5;
+  class B {
+  int x = 5;
 
     // Default Constructor that create an object of A
     // with passing this as an argument in the
@@ -123,6 +212,5 @@ int x = 5;
 
 }
 
-```
 
 ```
