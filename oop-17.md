@@ -66,46 +66,34 @@ class CreditCardPaymentProcessor extends PaymentProcessor {
   - Ví dụ: Hình chữ nhật có bốn cạnh. Chiều cao, chiều rộng có thể là bất kỳ giá trị nào. Hình vuông cũng là một hình chữ nhật nhưng có chiều rộng và chiều cao bnagwf nhau. Vì vậy ta có thể mở rộng thuộc tính của class Rectangle thành class Square. Nhưng nếu class con Square làm thay đổi hành vi của class cha thì sẽ vi phạm nguyên tắc này
 
 ```java
-// Base class for shapes
-class Rectangle {
-    protected double width;
-    protected double height;
+public interface Car {
 
-    public Rectangle(double w, double h) {
-        this.width = w;
-        this.height = h;
+    void turnOnEngine();
+    void accelerate();
+}
+// Thoả mãn nguyên tắc Liskov
+public class MotorCar implements Car {
+
+    private Engine engine;
+
+
+    public void turnOnEngine() {
+        engine.on();
     }
 
-    public double area() {
-        return width * height;
-    }
-
-    public double getWidth() {
-        return width;
-    }
-
-    public double getHeight() {
-        return height;
-    }
-
-    public void setWidth(double w) {
-        this.width = w;
-    }
-
-    public void setHeight(double h) {
-        this.height = h;
+    public void accelerate() {
+        engine.powerOn(1000);
     }
 }
+// Vi phạm nguyên tắc Liskov
+public class ElectricCar implements Car {
 
-// Derived class for squares
-class Square extends Rectangle {
-    public Square(double size) {
-        super(size, size);
+    // Xe điện không có Engine -> thay đổi hành vi của class cha.
+    public void turnOnEngine() {
+        throw new AssertionError("I don't have an engine!");
     }
 
-    @Override
-    public void setWidth(double w) {
-        this.width = this.height = w; // Ensure both width and height remain the same
+    public void accelerate() {
     }
 }
 ```
@@ -115,43 +103,31 @@ class Square extends Rectangle {
 * Ví dụ về gian hàng trong siêu thi. Nên chia thành các gian hàng riêng biệt: thức ăn, đồ gia dụng, giải trí,... chứ không phải bày biện lộn xộn. Chia gian hành thành các gian nhỏ hơn chuyên biệt với từng nhu cầu và mục đích.
 
 ```java
-// Interface cho gian hàng thức ăn
-interface FoodSection {
-    void sellFood();
+interface ShapeInterface {
+    void area();
 }
 
-// Interface cho gian hàng đồ gia dụng
-interface HouseholdSection {
-    void sellHouseholdItems();
+interface ThreeDimensionalShapeInterface {
+    void volume();
 }
 
-// Interface cho gian hàng giải trí
-interface EntertainmentSection {
-    void sellEntertainmentItems();
-}
+//2D shape
 
-// Lớp gian hàng thức ăn chỉ implement FoodSection
-class FoodStore implements FoodSection {
-    @Override
-    public void sellFood() {
-        System.out.println("Bán thực phẩm tươi sống, đồ ăn nhanh...");
+class Square implements ShapeInterface {
+    void area() {
+
     }
 }
 
-// Lớp gian hàng đồ gia dụng chỉ implement HouseholdSection
-class HouseholdStore implements HouseholdSection {
-    @Override
-    public void sellHouseholdItems() {
-        System.out.println("Bán nồi, chảo, máy giặt, tủ lạnh...");
+class Cuboid implements ShapeInterface, ThreeDimensionalShapeInterface {
+    void volume() {
+
+    }
+
+    void area() {
+
     }
 }
-
-// Lớp gian hàng giải trí chỉ implement EntertainmentSection
-class EntertainmentStore implements EntertainmentSection {
-    @Override
-    public void sellEntertainmentItems() {
-        System.out.println("Bán sách, đồ chơi, game...");
-    }
 
 ```
 
